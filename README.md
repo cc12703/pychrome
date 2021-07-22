@@ -16,6 +16,7 @@ A Python Package for the Google Chrome Dev Protocol, [more document](https://fat
 * [Tab management](#tab-management)
 * [Debug](#debug)
 * [Examples](#examples)
+* [Publish](#publish)
 * [Ref](#ref)
 
 
@@ -144,6 +145,12 @@ example:
 
 please see the [examples](http://github.com/fate0/pychrome/blob/master/examples) directory for more examples
 
+
+## Publish
+
+1. install deps `pip install setuptools wheel twine`
+1. pacakge `python setup.py sdist bdist_wheel`
+1. upload `twine upload dist/*`
 
 ## Ref
 
