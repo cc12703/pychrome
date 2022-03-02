@@ -29,7 +29,7 @@ class Browser(object):
         self._tabs[tab.id] = tab
         return tab
 
-    def list_tab(self, timeout=None):
+    def __list_tab_by_type(self, type, timeout=None):
         rp = requests.get("%s/json" % self.dev_url, json=True, timeout=timeout)
         tabs_map = {}
         for tab_json in rp.json():
@@ -43,6 +43,13 @@ class Browser(object):
 
         self._tabs = tabs_map
         return list(self._tabs.values())
+    
+
+    def list_tab(self, timeout=None):
+        return self.__list_tab_by_type('page', timeout)
+    
+    def list_tab_backgroud(self, timeout=None):
+        return self.__list_tab_by_type('background_page', timeout)
 
     def activate_tab(self, tab_id, timeout=None):
         if isinstance(tab_id, Tab):
