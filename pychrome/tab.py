@@ -55,6 +55,7 @@ class Tab(object):
         self.debug = os.getenv("DEBUG", False)
 
         self.url = kwargs.get("url")
+        self.title = kwargs.get("title")
         self._websocket_url = kwargs.get("webSocketDebuggerUrl")
         self._kwargs = kwargs
 
