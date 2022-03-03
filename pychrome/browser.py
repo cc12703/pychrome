@@ -33,7 +33,7 @@ class Browser(object):
         rp = requests.get("%s/json" % self.dev_url, json=True, timeout=timeout)
         tabs_map = {}
         for tab_json in rp.json():
-            if tab_json['type'] != 'page':  # pragma: no cover
+            if tab_json['type'] != type:  # pragma: no cover
                 continue
 
             if tab_json['id'] in self._tabs and self._tabs[tab_json['id']].status != Tab.status_stopped:
